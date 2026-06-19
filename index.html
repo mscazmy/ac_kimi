@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بريز كول - خدمات تكييف الهواء في واسط</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --sky-blue: #0EA5E9;
+            --sky-light: #E0F2FE;
+            --sky-dark: #0369A1;
+            --sky-darker: #0C4A6E;
+            --white: #FFFFFF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-600: #475569;
+            --gray-800: #1E293B;
+            --accent: #F59E0B;
+            --accent-hover: #D97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: var(--sky-darker);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+        .top-bar a:hover { color: var(--sky-light); }
+        .top-bar i { margin-left: 6px; color: var(--sky-blue); }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(14,165,233,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--sky-dark);
+            text-decoration: none;
+        }
+        .logo i {
+            font-size: 2rem;
+            color: var(--sky-blue);
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--sky-blue);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+        .nav-links a:hover { color: var(--sky-blue); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: var(--sky-blue);
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s !important;
+        }
+        .nav-cta:hover {
+            background: var(--sky-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(14,165,233,0.3);
+        }
+        .nav-cta::after { display: none !important; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--sky-dark);
+            cursor: pointer;
+        }
+
+        /* ===== HERO BANNER ===== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--sky-light) 0%, var(--white) 100%);
+            padding: 0;
+        }
+        .hero-banner-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: var(--sky-darker);
+            padding: 0;
+        }
+        .hero-banner-wrapper img {
+            width: 100%;
+            max-width: 1400px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* ===== QUICK INFO BAR ===== */
+        .quick-info {
+            background: var(--white);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .quick-info .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .info-card {
+            text-align: center;
+            padding: 25px 15px;
+            border-radius: 16px;
+            background: var(--gray-50);
+            transition: all 0.3s;
+            border: 1px solid var(--gray-200);
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(14,165,233,0.15);
+            border-color: var(--sky-blue);
+        }
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--sky-blue);
+            margin-bottom: 15px;
+            display: block;
+        }
+        .info-card h3 {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            margin-bottom: 8px;
+        }
+        .info-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* ===== SECTIONS COMMON ===== */
+        .section {
+            padding: 80px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--sky-darker);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--sky-blue);
+            border-radius: 2px;
+        }
+        .section-header p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            margin-top: 25px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-section {
+            background: var(--white);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--gray-50);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            transition: all 0.4s;
+            position: relative;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(14,165,233,0.15);
+            border-color: var(--sky-blue);
+        }
+        .service-card .service-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .service-card .service-content {
+            padding: 25px;
+        }
+        .service-card .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--sky-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .service-card .service-icon i {
+            font-size: 1.5rem;
+            color: var(--sky-blue);
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--sky-darker);
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== WHY US ===== */
+        .why-us-section {
+            background: linear-gradient(135deg, var(--sky-darker) 0%, var(--sky-dark) 100%);
+            color: var(--white);
+        }
+        .why-us-section .section-header h2,
+        .why-us-section .section-header p {
+            color: var(--white);
+        }
+        .why-us-section .section-header h2::after {
+            background: var(--accent);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .feature-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+        .feature-box:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+        .feature-box .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .feature-box .feature-icon i {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        .feature-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .feature-box p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery-section {
+            background: var(--gray-50);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(14,165,233,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .gallery-item .overlay i {
+            font-size: 2rem;
+            color: var(--white);
+        }
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section {
+            background: var(--white);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: var(--gray-50);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            transition: all 0.3s;
+        }
+        .testimonial-card:hover {
+            box-shadow: 0 10px 40px rgba(14,165,233,0.1);
+            border-color: var(--sky-blue);
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 4rem;
+            color: var(--sky-blue);
+            opacity: 0.3;
+            font-family: serif;
+            line-height: 1;
+        }
+        .testimonial-card .stars {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .testimonial-card p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-card .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--sky-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--sky-dark);
+        }
+        .testimonial-card .author-info h4 {
+            font-size: 1rem;
+            color: var(--gray-800);
+        }
+        .testimonial-card .author-info span {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        /* ===== BLOG/POSTS ===== */
+        .blog-section {
+            background: var(--gray-50);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(14,165,233,0.1);
+        }
+        .blog-card .blog-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .blog-card .blog-content {
+            padding: 25px;
+        }
+        .blog-card .blog-date {
+            color: var(--sky-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .blog-card h3 {
+            font-size: 1.15rem;
+            color: var(--gray-800);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .blog-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .blog-card .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--sky-blue);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: gap 0.3s;
+        }
+        .blog-card .read-more:hover {
+            gap: 12px;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--sky-dark) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            color: var(--sky-dark);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .cta-btn i { font-size: 1.2rem; }
+
+        /* ===== CONTACT ===== */
+        .contact-section {
+            background: var(--white);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: var(--sky-darker);
+            margin-bottom: 25px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: var(--sky-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sky-blue);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .contact-item h4 {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            margin-bottom: 5px;
+        }
+        .contact-item p, .contact-item a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .contact-item a:hover { color: var(--sky-blue); }
+
+        .contact-form {
+            background: var(--gray-50);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--gray-200);
+        }
+        .contact-form h3 {
+            font-size: 1.5rem;
+            color: var(--sky-darker);
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--white);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 0 4px rgba(14,165,233,0.1);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--sky-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .submit-btn:hover {
+            background: var(--sky-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(14,165,233,0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--sky-darker);
+            color: var(--white);
+            padding: 60px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-brand h3 i { color: var(--sky-blue); }
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--sky-light);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        .footer-col ul li a:hover {
+            color: var(--sky-blue);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 25px 0;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .footer-social a:hover {
+            background: var(--sky-blue);
+            transform: translateY(-3px);
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--sky-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(14,165,233,0.3);
+        }
+        .scroll-top:hover {
+            background: var(--sky-dark);
+            transform: translateY(-3px);
+        }
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 5px 30px rgba(37,211,102,0.7); }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid,
+            .testimonials-grid,
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .quick-info .container { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .services-grid,
+            .testimonials-grid,
+            .blog-grid,
+            .features-grid,
+            .quick-info .container {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item.wide { grid-column: span 2; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 1.8rem; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .top-bar .container { flex-direction: column; gap: 5px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div>
+                <a href="tel:07711222216"><i class="fas fa-phone"></i> 07711222216</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> واسط، العراق</a>
+            </div>
+            <div>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/9647711222216"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-snowflake"></i>
+                بريز كول
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#gallery">معرض الأعمال</a></li>
+                <li><a href="#blog">المدونة</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="admin/index.html" class="nav-cta"><i class="fas fa-lock"></i> لوحة التحكم</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Banner - Image displayed fully without any overlay -->
+    <section class="hero-section" id="home">
+        <div class="hero-banner-wrapper">
+            <img src="images/hero-banner.png" alt="Professional AC Repair - بريز كول" loading="eager">
+        </div>
+    </section>
+
+    <!-- Quick Info -->
+    <section class="quick-info">
+        <div class="container">
+            <div class="info-card fade-in">
+                <i class="fas fa-bolt"></i>
+                <h3>خدمة سريعة</h3>
+                <p>استجابة فورية لجميع طلبات الإصلاح في واسط</p>
+            </div>
+            <div class="info-card fade-in">
+                <i class="fas fa-user-tie"></i>
+                <h3>فنيون محترفون</h3>
+                <p>فريق متخصص بخبرة واسعة في مجال التكييف</p>
+            </div>
+            <div class="info-card fade-in">
+                <i class="fas fa-tags"></i>
+                <h3>أسعار تنافسية</h3>
+                <p>أفضل الأسعار مع ضمان الجودة العالية</p>
+            </div>
+            <div class="info-card fade-in">
+                <i class="fas fa-headset"></i>
+                <h3>دعم على مدار الساعة</h3>
+                <p>متاحون 24/7 لخدمتكم في محافظة واسط</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>خدماتنا</h2>
+                <p>نقدم مجموعة شاملة من خدمات التكييف بأعلى معايير الجودة</p>
+            </div>
+            <div class="services-grid" id="services-grid">
+                <div class="service-card fade-in">
+                    <img src="images/gallery-6.png" alt="إصلاح المكيفات" class="service-img" loading="lazy">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <h3>إصلاح المكيفات</h3>
+                        <p>إصلاح جميع أنواع المكيفات المنزلية والتجارية بأحدث التقنيات وقطع الغيار الأصلية</p>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="images/gallery-9.png" alt="تركيب المكيفات" class="service-img" loading="lazy">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                        <h3>تركيب المكيفات</h3>
+                        <p>تركيب احترافي لجميع أنواع المكيفات مع ضمان شامل على التركيب والأداء</p>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="images/gallery-7.png" alt="صيانة المكيفات" class="service-img" loading="lazy">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-cog"></i></div>
+                        <h3>صيانة دورية</h3>
+                        <p>خطط صيانة دورية للحفاظ على كفاءة المكيف وتجنب الأعطال المفاجئة</p>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="images/gallery-5.png" alt="تنظيف المكيفات" class="service-img" loading="lazy">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-broom"></i></div>
+                        <h3>تنظيف المكيفات</h3>
+                        <p>تنظيف عميق للفلاتر والملفات لضمان هواء نظيف وصحي لعائلتك</p>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="images/gallery-1.png" alt="فحص المكيفات" class="service-img" loading="lazy">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-search"></i></div>
+                        <h3>فحص شامل</h3>
+                        <p>فحص شامل للمكيف بأحدث الأجهزة الكشفية لتحديد المشاكل بدقة</p>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="images/gallery-4.png" alt="تعبئة غاز التبريد" class="service-img" loading="lazy">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-wind"></i></div>
+                        <h3>تعبئة غاز التبريد</h3>
+                        <p>تعبئة غاز التبريد بأنواعه المختلفة مع ضمان عدم التسرب</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="section why-us-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>لماذا تختارنا؟</h2>
+                <p>نحن نتميز بالاحترافية والمصداقية في كل ما نقوم به</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                    <h3>سرعة الاستجابة</h3>
+                    <p>نصل إليك في أسرع وقت ممكن داخل محافظة واسط</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>ضمان شامل</h3>
+                    <p>ضمان على جميع أعمال الإصلاح والتركيب والصيانة</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>فنيون معتمدون</h3>
+                    <p>فريق فني مدرب ومؤهل بشهادات معتمدة</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>أسعار شفافة</h3>
+                    <p>لا رسوم خفية، أسعار واضحة قبل بدء العمل</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
+                    <h3>جودة عالية</h3>
+                    <p>نستخدم قطع غيار أصلية وأدوات حديثة</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-smile"></i></div>
+                    <h3>رضا العملاء</h3>
+                    <p>أولويتنا رضاكم الكامل عن خدماتنا</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>تغطية واسعة</h3>
+                    <p>نغطي جميع مناطق محافظة واسط</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-phone-volume"></i></div>
+                    <h3>دعم فني</h3>
+                    <p>استشارات فنية مجانية عبر الهاتف</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>معرض الأعمال</h2>
+                <p>نماذج من أعمالنا في مجال التكييف</p>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item wide fade-in" onclick="openLightbox('images/gallery-6.png')">
+                    <img src="images/gallery-6.png" alt="صيانة المكيفات" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox('images/gallery-9.png')">
+                    <img src="images/gallery-9.png" alt="تركيب المكيفات" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox('images/gallery-7.png')">
+                    <img src="images/gallery-7.png" alt="فحص المكيفات" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox('images/gallery-5.png')">
+                    <img src="images/gallery-5.png" alt="إصلاح المكيفات" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item wide fade-in" onclick="openLightbox('images/gallery-1.png')">
+                    <img src="images/gallery-1.png" alt="صيانة احترافية" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox('images/gallery-14.png')">
+                    <img src="images/gallery-14.png" alt="تركيب خارجي" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox('images/gallery-13.png')">
+                    <img src="images/gallery-13.png" alt="تركيب داخلي" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in" onclick="openLightbox('images/gallery-2.png')">
+                    <img src="images/gallery-2.png" alt="خدمات التكييف" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>آراء عملائنا</h2>
+                <p>ما يقوله عملاؤنا الكرام عن تجربتهم معنا</p>
+            </div>
+            <div class="testimonials-grid" id="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>خدمة ممتازة وفريق محترف جداً. قاموا بإصلاح مكيفنا في وقت قياسي وبسعر مناسب. أنصح بالتعامل معهم بشدة.</p>
+                    <div class="author">
+                        <div class="author-avatar">أ</div>
+                        <div class="author-info">
+                            <h4>أحمد محسن</h4>
+                            <span>الكوت، واسط</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>تركيب احترافي لمكيفات المكتب. الفريق كان منظم ونظيف في العمل. النتيجة رائعة والتبريد ممتاز.</p>
+                    <div class="author">
+                        <div class="author-avatar">م</div>
+                        <div class="author-info">
+                            <h4>محمد خالد</h4>
+                            <span>الحي، واسط</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>صيانة دورية ممتازة للمكيفات. الفني كان محترف وشرح لي كل شيء بوضوح. سأستمر في التعامل معهم.</p>
+                    <div class="author">
+                        <div class="author-avatar">س</div>
+                        <div class="author-info">
+                            <h4>سامي عبد الله</h4>
+                            <span>الصالحية، واسط</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog/Posts -->
+    <section class="section blog-section" id="blog">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>المدونة</h2>
+                <p>نصائح وأخبار حول التكييف والتبريد</p>
+            </div>
+            <div class="blog-grid" id="blog-grid">
+                <!-- Posts will be loaded dynamically from localStorage -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="fade-in">هل تحتاج إلى خدمة تكييف؟</h2>
+            <p class="fade-in">اتصل بنا الآن واحصل على خدمة سريعة وموثوقة في محافظة واسط</p>
+            <a href="tel:07711222216" class="cta-btn fade-in">
+                <i class="fas fa-phone"></i>
+                اتصل الآن: 07711222216
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>تواصل معنا</h2>
+                <p>نحن هنا لمساعدتك في أي وقت</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>معلومات التواصل</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>رقم الهاتف</h4>
+                            <a href="tel:07711222216">07711222216</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>واتساب</h4>
+                            <a href="https://wa.me/9647711222216">07711222216</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>الموقع</h4>
+                            <p>محافظة واسط، العراق</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>ساعات العمل</h4>
+                            <p>طوال أيام الأسبوع - 24 ساعة</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3>أرسل لنا رسالة</h3>
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="077XXXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة</label>
+                            <select id="service" name="service" required>
+                                <option value="">اختر نوع الخدمة</option>
+                                <option value="repair">إصلاح المكيف</option>
+                                <option value="install">تركيب مكيف جديد</option>
+                                <option value="maintain">صيانة دورية</option>
+                                <option value="clean">تنظيف المكيف</option>
+                                <option value="gas">تعبئة غاز التبريد</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" name="message" placeholder="اكتب تفاصيل طلبك هنا..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> إرسال الطلب
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-snowflake"></i> بريز كول</h3>
+                    <p>نقدم خدمات إصلاح وتركيب وصيانة المكيفات بأعلى معايير الجودة في محافظة واسط، العراق. فريق محترف، أسعار تنافسية، وضمان شامل.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/9647711222216"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#gallery">معرض الأعمال</a></li>
+                        <li><a href="#blog">المدونة</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>خدماتنا</h4>
+                    <ul>
+                        <li><a href="#services">إصلاح المكيفات</a></li>
+                        <li><a href="#services">تركيب المكيفات</a></li>
+                        <li><a href="#services">صيانة دورية</a></li>
+                        <li><a href="#services">تنظيف المكيفات</a></li>
+                        <li><a href="#services">تعبئة الغاز</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul>
+                        <li><a href="tel:07711222216"><i class="fas fa-phone"></i> 07711222216</a></li>
+                        <li><a href="https://wa.me/9647711222216"><i class="fab fa-whatsapp"></i> واتساب</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> واسط، العراق</a></li>
+                        <li><a href="admin/index.html"><i class="fas fa-lock"></i> لوحة التحكم</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 بريز كول - جميع الحقوق محفوظة | خدمات تكييف الهواء في واسط، العراق</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightbox(event)"><i class="fas fa-times"></i></button>
+        <img src="" alt="Gallery" id="lightbox-img">
+    </div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/9647711222216" class="whatsapp-float" title="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // ===== LOAD POSTS FROM LOCALSTORAGE =====
+        function loadPosts() {
+            const posts = JSON.parse(localStorage.getItem('ac_posts') || '[]');
+            const blogGrid = document.getElementById('blog-grid');
+
+            // Default posts if none exist
+            const defaultPosts = [
+                {
+                    id: 'default-1',
+                    title: 'نصائح للحفاظ على كفاءة المكيف في الصيف',
+                    content: 'تعرف على أهم النصائح للحفاظ على كفاءة مكيف الهواء خلال فصل الصيف الحار في العراق...',
+                    image: 'images/gallery-7.png',
+                    date: '2026-06-15',
+                    category: 'نصائح'
+                },
+                {
+                    id: 'default-2',
+                    title: 'متى يجب عليك تنظيف فلاتر المكيف؟',
+                    content: 'التنظيف الدوري للفلاتر يضمن هواءً نظيفاً وي prolongs عمر المكيف...',
+                    image: 'images/gallery-5.png',
+                    date: '2026-06-10',
+                    category: 'صيانة'
+                },
+                {
+                    id: 'default-3',
+                    title: 'أنواع غاز التبريد وكيفية اختيار الأنسب',
+                    content: 'R22، R410A، R32... تعرف على الفروقات بين أنواع غاز التبريد المختلفة...',
+                    image: 'images/gallery-4.png',
+                    date: '2026-06-05',
+                    category: 'تعليمي'
+                }
+            ];
+
+            const allPosts = posts.length > 0 ? posts : defaultPosts;
+
+            blogGrid.innerHTML = allPosts.slice(0, 6).map(post => `
+                <div class="blog-card fade-in">
+                    <img src="${post.image}" alt="${post.title}" class="blog-img" loading="lazy" onerror="this.src='images/gallery-1.png'">
+                    <div class="blog-content">
+                        <div class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</div>
+                        <h3>${post.title}</h3>
+                        <p>${post.content.substring(0, 120)}...</p>
+                        <a href="#" class="read-more" onclick="event.preventDefault(); alert('التفاصيل الكاملة ستكون متاحة قريباً')">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Re-trigger fade-in for new elements
+            setTimeout(initScrollAnimations, 100);
+        }
+
+        // ===== CONTACT FORM =====
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+
+            // Store contact request
+            const contacts = JSON.parse(localStorage.getItem('ac_contacts') || '[]');
+            contacts.push({
+                ...data,
+                id: Date.now(),
+                timestamp: new Date().toISOString(),
+                status: 'new'
+            });
+            localStorage.setItem('ac_contacts', JSON.stringify(contacts));
+
+            alert('تم إرسال طلبك بنجاح! سنتواصل معك في أقرب وقت.');
+            e.target.reset();
+        }
+
+        // ===== LIGHTBOX =====
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox(e) {
+            if (e.target === document.getElementById('lightbox') || e.target.closest('.lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // ===== SCROLL TO TOP =====
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+        // ===== NAVBAR SCROLL =====
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const scrollTop = document.getElementById('scrollTop');
+
+            if (window.scrollY > 100) {
+                navbar.style.boxShadow = '0 4px 30px rgba(14,165,233,0.15)';
+                scrollTop.classList.add('visible');
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(14,165,233,0.1)';
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.background = 'var(--white)';
+            navLinks.style.padding = '20px';
+            navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            navLinks.style.gap = '15px';
+        }
+
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPosts();
+            initScrollAnimations();
+        });
+    </script>
+</body>
+</html>
